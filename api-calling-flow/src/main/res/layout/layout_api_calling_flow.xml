@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_base_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="#FFFFFF">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+
+    <Button
+        android:id="@+id/btnTryAgain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="Try Again"
+        android:textAllCaps="false"
+        android:textStyle="bold"/>
+
+    <View
+        android:id="@+id/viewDummy"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_alignParentBottom="true"/>
+
+    <ImageView
+        android:id="@+id/imgCancel"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_above="@id/viewDummy"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_close_black"/>
+
+    <ImageView
+        android:id="@+id/ivApiError"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_close_black"/>
+
+    <TextView
+        android:id="@+id/tvApiError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivApiError"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="@string/oops_something_went_wrong"/>
+
+    <TextView
+        android:id="@+id/tvEnableNetwork"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnTryAgain"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:gravity="start"
+        android:textAlignment="textStart"
+        android:textSize="20sp"/>
+</RelativeLayout>

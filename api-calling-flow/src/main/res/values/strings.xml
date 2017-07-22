@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">API-Calling-Flow</string>
+    <string name="oops_something_went_wrong">Opps! something went wrong.</string>
+</resources>

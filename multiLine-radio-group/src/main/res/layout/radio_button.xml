@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioButton
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/multi_line_radio_group_default_radio_button"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    android:background="@drawable/selector_radio_button"
+    android:button="@null"
+    android:gravity="center"
+    android:paddingBottom="4dp"
+    android:paddingTop="4dp"
+    android:textSize="14sp"/>

@@ -12,7 +12,7 @@ An API retry flow with all advanced functionalities like NETWORK CHECK, TRY AGAI
   
   
 	dependencies {
-	        compile 'com.github.RohitSurwase:API-Calling-Flow:0.1'
+	        compile 'com.github.RohitSurwase.API-Calling-Flow:api-calling-flow:0.2'
 	}
 	
 # Stay tunned for documentation.

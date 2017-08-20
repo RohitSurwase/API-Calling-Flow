@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/API-Calling-Flow.iml" filepath="$PROJECT_DIR$/API-Calling-Flow.iml" />
       <module fileurl="file://$PROJECT_DIR$/api-calling-flow/api-calling-flow.iml" filepath="$PROJECT_DIR$/api-calling-flow/api-calling-flow.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example-app/example-app.iml" filepath="$PROJECT_DIR$/example-app/example-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/ignore-dummy-module/ignore-dummy-module.iml" filepath="$PROJECT_DIR$/ignore-dummy-module/ignore-dummy-module.iml" />
     </modules>
   </component>

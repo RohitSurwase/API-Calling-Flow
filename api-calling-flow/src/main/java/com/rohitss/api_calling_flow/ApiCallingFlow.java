@@ -30,10 +30,10 @@ public abstract class ApiCallingFlow {
     private Button btnTryAgain;
     private ProgressBar pbLoading;
     private TextView tvApiError;
-    private ImageView ivApiError;
     private TextView tvEnableNetwork;
     private ImageView ivCancel;
     private boolean isTransparent;
+    private boolean isNetworkAvailable;
 
     /**
      * Constructor used to initialize this functionality
@@ -53,7 +53,8 @@ public abstract class ApiCallingFlow {
     private void inflateAndSetUpLayout() {
         LayoutInflater layoutInflater = LayoutInflater.from(mContext);
         progressLayout = layoutInflater.inflate(R.layout.layout_api_calling_flow, parentLayout, false);
-        progressLayout.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        progressLayout.setLayoutParams(layoutParams);
         //Calling function to initialize required views.
         initializeViews();
         if (parentLayout != null) {
@@ -64,11 +65,13 @@ public abstract class ApiCallingFlow {
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
         // if no network is available networkInfo will be null, otherwise check if we are connected
         if (networkInfo != null && networkInfo.isConnected()) {
+            isNetworkAvailable = true;
             btnTryAgain.setVisibility(View.GONE);
             ivCancel.setVisibility(View.GONE);
             pbLoading.setVisibility(View.VISIBLE);
             tvEnableNetwork.setVisibility(View.GONE);
         } else {
+            isNetworkAvailable = false;
             btnTryAgain.setVisibility(View.VISIBLE);
             ivCancel.setVisibility(View.VISIBLE);
             pbLoading.setVisibility(View.GONE);
@@ -81,6 +84,7 @@ public abstract class ApiCallingFlow {
                 NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
                 // if no network is available networkInfo will be null, otherwise check if we are connected
                 if (networkInfo != null && networkInfo.isConnected()) {
+                    isNetworkAvailable = true;
                     removeProgressView();
                     callCurrentApiHere();
                 }
@@ -93,7 +97,7 @@ public abstract class ApiCallingFlow {
             }
         });
         //Set spannable text to enable WiFI and Mobile Data
-        SpannableString spannableString = new SpannableString("No Internet Connection. Enable Wi-Fi or Cellular Mobile Data, then try again.");
+        SpannableString spannableString = new SpannableString("No Internet connection. Enable Wi-Fi or Cellular Mobile data, then try again.");
         ClickableSpan spanWiFi = new ClickableSpan() {
             @Override
             public void onClick(View textView) {
@@ -134,10 +138,8 @@ public abstract class ApiCallingFlow {
         btnTryAgain = ((Button) progressLayout.findViewById(R.id.btnTryAgain));
         btnTryAgain.setVisibility(View.GONE);
         pbLoading = ((ProgressBar) progressLayout.findViewById(R.id.progressBar));
-        pbLoading.getIndeterminateDrawable().setColorFilter(0xFF7fba00, android.graphics.PorterDuff.Mode.MULTIPLY);
+        pbLoading.getIndeterminateDrawable().setColorFilter(0xFF9e9e9e, android.graphics.PorterDuff.Mode.MULTIPLY);
         pbLoading.setVisibility(View.GONE);
-        ivApiError = ((ImageView) progressLayout.findViewById(R.id.ivApiError));
-        ivApiError.setVisibility(View.GONE);
         tvApiError = ((TextView) progressLayout.findViewById(R.id.tvApiError));
         tvApiError.setVisibility(View.GONE);
         ivCancel = (ImageView) progressLayout.findViewById(R.id.imgCancel);
@@ -171,7 +173,6 @@ public abstract class ApiCallingFlow {
      */
     public void onErrorResponse() {
         pbLoading.setVisibility(View.GONE);
-        ivApiError.setVisibility(View.VISIBLE);
         tvApiError.setVisibility(View.VISIBLE);
         ivCancel.setVisibility(View.VISIBLE);
     }
@@ -181,5 +182,9 @@ public abstract class ApiCallingFlow {
      */
     public void onSuccessResponse() {
         removeProgressView();
+    }
+
+    public boolean getNetworkState() {
+        return isNetworkAvailable;
     }
 }

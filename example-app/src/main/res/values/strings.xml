@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">WebService-Example</string>
+    <string name="app_name">ApiCallingFlow-Example</string>
+    <string name="dummy_text">Dummy layout which needs to be hidden during API call. \n\nDummy layout which needs to be hidden during API call. \n\nDummy layout which needs to be hidden during API call. \n\nDummy layout which needs to be hidden during API call. \n\nDummy layout which needs to be hidden during API call.</string>
 </resources>

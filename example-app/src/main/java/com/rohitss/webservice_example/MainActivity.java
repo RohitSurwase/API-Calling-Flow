@@ -5,8 +5,8 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ((TextView) findViewById(R.id.btnRequestApi)).setOnClickListener(new View.OnClickListener() {
+        ((Button) findViewById(R.id.btnRequestApi)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 requestTestApi();
@@ -37,33 +37,35 @@ public class MainActivity extends AppCompatActivity {
                 requestTestApi();
             }
         };
-        AndroidNetworking.get("https://jsonplaceholder.typicode.com/posts/1")
-                .setPriority(Priority.HIGH)
-                .setTag("requestTestApi")
-                .build()
-                .getAsJSONObject(new JSONObjectRequestListener() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Log.d("MainActivity", "onResponse: " + response);
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                apiCallingFlow.onSuccessResponse();
-                            }
-                        }, 5000);
-                    }
+        if (apiCallingFlow.getNetworkState()) {
+            AndroidNetworking.get("https://jsonplaceholder.typicode.com/posts/1")
+                    .setPriority(Priority.HIGH)
+                    .setTag("requestTestApi")
+                    .build()
+                    .getAsJSONObject(new JSONObjectRequestListener() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            Log.d("MainActivity", "onResponse: " + response);
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    apiCallingFlow.onSuccessResponse();
+                                }
+                            }, 5000);
+                        }
 
-                    @Override
-                    public void onError(ANError anError) {
-                        Log.d("MainActivity", "onError Code: " + anError.getErrorCode());
-                        Log.d("MainActivity", "onError Body: " + anError.getErrorBody());
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                apiCallingFlow.onErrorResponse();
-                            }
-                        }, 5000);
-                    }
-                });
+                        @Override
+                        public void onError(ANError anError) {
+                            Log.d("MainActivity", "onError Code: " + anError.getErrorCode());
+                            Log.d("MainActivity", "onError Body: " + anError.getErrorBody());
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    apiCallingFlow.onErrorResponse();
+                                }
+                            }, 5000);
+                        }
+                    });
+        }
     }
 }

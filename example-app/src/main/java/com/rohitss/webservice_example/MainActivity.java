@@ -3,7 +3,6 @@ package com.rohitss.webservice_example;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -30,13 +29,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void requestTestApi() {
+        //TODO Step 1: Get reference to root layout of Activity or Fragment.
         RelativeLayout parentLayout = (RelativeLayout) findViewById(R.id.relativeLayout);
+        /*
+         * TODO Step 2: Initialize ApiCallingFlow
+         * 1st parameter - context
+         * 2nd parameter - parentLayout from step 1
+         * 3rd parameter - isTransparent (if you want background color to be transparent then 'true' else for default white background 'false')
+         */
         final ApiCallingFlow apiCallingFlow = new ApiCallingFlow(this, parentLayout, false) {
             @Override
             public void callCurrentApiHere() {
+                //TODO Step 3: Pass function to call current API
                 requestTestApi();
             }
         };
+        //TODO Step 4: Get current Network state ( apiCallingFlow.getNetworkState() ) and request API accordingly.
         if (apiCallingFlow.getNetworkState()) {
             AndroidNetworking.get("https://jsonplaceholder.typicode.com/posts/1")
                     .setPriority(Priority.HIGH)
@@ -45,10 +53,10 @@ public class MainActivity extends AppCompatActivity {
                     .getAsJSONObject(new JSONObjectRequestListener() {
                         @Override
                         public void onResponse(JSONObject response) {
-                            Log.d("MainActivity", "onResponse: " + response);
                             new Handler().postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
+                                    //TODO Step 5: Call ( apiCallingFlow.onSuccessResponse(); ) after API is successful
                                     apiCallingFlow.onSuccessResponse();
                                 }
                             }, 5000);
@@ -56,11 +64,10 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void onError(ANError anError) {
-                            Log.d("MainActivity", "onError Code: " + anError.getErrorCode());
-                            Log.d("MainActivity", "onError Body: " + anError.getErrorBody());
                             new Handler().postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
+                                    //TODO Step 6: Call ( apiCallingFlow.onErrorResponse(); ) after API is failed
                                     apiCallingFlow.onErrorResponse();
                                 }
                             }, 5000);

@@ -65,14 +65,14 @@ Refer to the [example](https://github.com/RohitSurwase/API-Calling-Flow/tree/mas
 			RelativeLayout parentLayout = (RelativeLayout) findViewById(R.id.rootLayout);
 
         /*
-         * TODO Step 2: Initialize ApiCallingFlow
+         * TODO Step 2: Crete Object of ApiCallingFlow and implement methods.
          * 1st parameter - context
          * 2nd parameter - parentLayout from step 1
          * 3rd parameter - isTransparent (if you want background color to be transparent then 'true'
          * else 'false' for default white background)
          */
 
-			final ApiCallingFlow apiCallingFlow = new ApiCallingFlow(this, parentLayout, false) {
+			ApiCallingFlow apiCallingFlow = new ApiCallingFlow(this, parentLayout, false) {
 				@Override
 				public void callCurrentApiHere() {
 				

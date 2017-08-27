@@ -12,7 +12,7 @@ API Calling Flow is a Android library which can help you to simplify handling di
 * "Try Again" same API after enabling Network connection.
 * Call API only if the Network connection is enabled.
 * Remove progress bar after successfully loading data on screen.
-* Show full-screen errors to users while hiding unloaded screen from user for better user experience.
+* Show full-screen errors to users and hide unloaded screen from user for better user experience.
 
 ## Setup
 In your Project's build.gradle file:

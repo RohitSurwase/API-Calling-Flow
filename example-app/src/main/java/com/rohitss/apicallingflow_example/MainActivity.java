@@ -1,4 +1,4 @@
-package com.rohitss.webservice_example;
+package com.rohitss.apicallingflow_example;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
@@ -24,6 +25,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 requestTestApi();
+            }
+        });
+        ((Button) findViewById(R.id.btnReset)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((TextView) findViewById(R.id.tvDummyView)).setText(getString(R.string.dummy_text));
             }
         });
     }
@@ -56,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                             new Handler().postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
+                                    ((TextView) findViewById(R.id.tvDummyView)).setText(getString(R.string.valid_text));
                                     //TODO Step 5: Call ( apiCallingFlow.onSuccessResponse(); ) after API is successful
                                     apiCallingFlow.onSuccessResponse();
                                 }

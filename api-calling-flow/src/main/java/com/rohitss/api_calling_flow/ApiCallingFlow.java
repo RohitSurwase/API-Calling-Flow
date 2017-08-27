@@ -34,6 +34,7 @@ public abstract class ApiCallingFlow {
     private ImageView ivCancel;
     private boolean isTransparent;
     private boolean isNetworkAvailable;
+    private ConnectivityManager connectivityManager;
 
     /**
      * Constructor used to initialize this functionality
@@ -47,6 +48,7 @@ public abstract class ApiCallingFlow {
         this.parentLayout = parentLayout;
         mContext = context;
         this.isTransparent = isTransparent;
+        connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         inflateAndSetUpLayout();
     }
 
@@ -61,7 +63,6 @@ public abstract class ApiCallingFlow {
             removeProgressView();
             parentLayout.addView(progressLayout);
         }
-        ConnectivityManager connectivityManager = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
         // if no network is available networkInfo will be null, otherwise check if we are connected
         if (networkInfo != null && networkInfo.isConnected()) {
@@ -80,7 +81,6 @@ public abstract class ApiCallingFlow {
         btnTryAgain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ConnectivityManager connectivityManager = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
                 // if no network is available networkInfo will be null, otherwise check if we are connected
                 if (networkInfo != null && networkInfo.isConnected()) {

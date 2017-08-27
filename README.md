@@ -7,12 +7,12 @@ API Calling Flow is a Android library which can help you to simplify handling di
 ## Features
 
 * Internal Network State Checking.
-* On screen Settting's shortcuts to enable Wi-FI or Mobile Data.
+* On screen Setting's shortcuts to enable Wi-FI or Mobile Data.
 * Hide unloaded screen during API call and show progress bar with white or transparent background.
 * "Try Again" same API after enabling Network connection.
 * Call API only if the Network connection is enabled.
 * Remove progress bar after successfully loading data on screen.
-* Show fullscreen errors to users while hiding unloaded screen from user for better user experience.
+* Show full-screen errors to users while hiding unloaded screen from user for better user experience.
 
 ## Setup
 In your Project's build.gradle file:

@@ -17,46 +17,42 @@ API Calling Flow is a Android library which can help you to simplify handling di
 ## Setup
 In your Project's build.gradle file:
 
-```java
 	allprojects {
 		repositories {
-    		...
+    	...
 			maven { url 'https://jitpack.io' }
-      	  ...
+      ...
 		}
 	}
-```
 
 In your Application's or Module's build.gradle file:
 
 
-```java
 	dependencies {
   	  ...
-        compile 'com.github.RohitSurwase.API-Calling-Flow:api-calling-flow:1.0'
-        ...
+      compile 'com.github.RohitSurwase.API-Calling-Flow:api-calling-flow:1.0'
+      ...
 	}
-```
 
 ## Screenshots
 Case 1. when Network connection is not available-
 
-| <img src="https://github.com/RohitSurwase/API-Calling-Flow/raw/master/screenshots/Dummy_1_Disconnected.png" alt=""   width="200" height="350" title="hover text" />  | <img src="https://github.com/RohitSurwase/API-Calling-Flow/raw/master/screenshots/Disconnected.png" alt=""   width="200" height="350" title="hover text" />  |
+| <img src="https://github.com/RohitSurwase/API-Calling-Flow/raw/master/screenshots/Dummy_1_Disconnected.png" alt="Network Connection is not available"   width="200" height="350" title="Network Connection is not available" />  | <img src="https://github.com/RohitSurwase/API-Calling-Flow/raw/master/screenshots/Disconnected.png" alt="Setting's shortcut to enable Network Connection"   width="200" height="350" title="Setting's shortcut to enable Network Connection" />  |
 |:---:|:---:|
-| Screen where data from server need to be loaded | Setting's shortcut to enable Network Connection |
+| Network Connection is not available | Setting's shortcut to enable Network Connection |
 
 Case 2. When Network connection is available and API is successful-
 
-| <img src="https://github.com/RohitSurwase/API-Calling-Flow/raw/master/screenshots/Dummy_1_Connected.png" alt=""   width="200" height="350" title="hover text" />  | <img src="https://github.com/RohitSurwase/API-Calling-Flow/raw/master/screenshots/Loading_1.png" alt=""   width="200" height="350" title="hover text" /> | <img src="https://github.com/RohitSurwase/API-Calling-Flow/raw/master/screenshots/Success.png" alt=""   width="200" height="350" title="hover text" /> |
+| <img src="https://github.com/RohitSurwase/API-Calling-Flow/raw/master/screenshots/Dummy_1_Connected.png" alt="Network Connection is available"   width="200" height="350" title="Network Connection is available" />  | <img src="https://github.com/RohitSurwase/API-Calling-Flow/raw/master/screenshots/Loading_1.png" alt="API requested"   width="200" height="350" title="API requested" /> | <img src="https://github.com/RohitSurwase/API-Calling-Flow/raw/master/screenshots/Success.png" alt="API successful, data loaded"   width="200" height="350" title="API successful, data loaded" /> |
 |:---:|:---:|:---:|
-| caption 1 | caption 2 | caption 3 |
+| Network Connection is available | API requested | API successful, data loaded |
 
 
 Case 3. When Network connection is available but API is failed-
 
-| <img src="https://github.com/RohitSurwase/API-Calling-Flow/raw/master/screenshots/Dummy_1_Connected.png" alt=""   width="200" height="350" title="hover text" />  | <img src="https://github.com/RohitSurwase/API-Calling-Flow/raw/master/screenshots/Loading_2.png" alt=""   width="200" height="350" title="hover text" /> | <img src="https://github.com/RohitSurwase/API-Calling-Flow/raw/master/screenshots/Error.png" alt=""   width="200" height="350" title="hover text" /> |
+| <img src="https://github.com/RohitSurwase/API-Calling-Flow/raw/master/screenshots/Dummy_1_Connected.png" alt="Network Connection is available"   width="200" height="350" title="Network Connection is available" />  | <img src="https://github.com/RohitSurwase/API-Calling-Flow/raw/master/screenshots/Loading_2.png" alt="API requested"   width="200" height="350" title="API requested" /> | <img src="https://github.com/RohitSurwase/API-Calling-Flow/raw/master/screenshots/Error.png" alt="API failed, error shown"   width="200" height="350" title="API failed, error shown" /> |
 |:---:|:---:|:---:|
-| caption 1 | caption 2 | caption 3 |
+| Network Connection is available | API requested | API failed, error shown |
 
 
 ## Code Example
@@ -66,7 +62,7 @@ Refer to the [example](https://github.com/RohitSurwase/API-Calling-Flow/tree/mas
 		//TODO Step 1: Get reference to root layout of Activity or Fragment.
     	//Root layout can be any ViewGroup
 
-        RelativeLayout parentLayout = (RelativeLayout) findViewById(R.id.rootLayout);
+			RelativeLayout parentLayout = (RelativeLayout) findViewById(R.id.rootLayout);
 
         /*
          * TODO Step 2: Initialize ApiCallingFlow
@@ -76,14 +72,14 @@ Refer to the [example](https://github.com/RohitSurwase/API-Calling-Flow/tree/mas
          * else 'false' for default white background)
          */
 
-        final ApiCallingFlow apiCallingFlow = new ApiCallingFlow(this, parentLayout, false) {
-            @Override
-            public void callCurrentApiHere() {
-            
-                //TODO Step 3: Pass function to call current API
-                requestCurrentApi();
-            }
-        };
+			final ApiCallingFlow apiCallingFlow = new ApiCallingFlow(this, parentLayout, false) {
+				@Override
+				public void callCurrentApiHere() {
+				
+					//TODO Step 3: Pass function to call current API
+					requestCurrentApi();
+				}
+			};
 
 
         //TODO Step 4: Get current Network state using ( apiCallingFlow.getNetworkState() ) 

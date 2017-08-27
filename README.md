@@ -59,35 +59,35 @@ Case 3. When Network connection is available but API is failed-
 
 Refer to the [example](https://github.com/RohitSurwase/API-Calling-Flow/tree/master/example-app) for complete implementation and usage. 
 
-		//TODO Step 1: Get reference to root layout of Activity or Fragment.
-    	//Root layout can be any ViewGroup
+	//TODO Step 1: Get reference to root layout of Activity or Fragment.
+    //Root layout can be any ViewGroup
 
-			RelativeLayout parentLayout = (RelativeLayout) findViewById(R.id.rootLayout);
+		RelativeLayout parentLayout = (RelativeLayout) findViewById(R.id.rootLayout);
 
-        /*
-         * TODO Step 2: Crete Object of ApiCallingFlow and implement methods.
-         * 1st parameter - context
-         * 2nd parameter - parentLayout from step 1
-         * 3rd parameter - isTransparent (if you want background color to be transparent then 'true'
-         * else 'false' for default white background)
-         */
+	/*
+	 * TODO Step 2: Crete Object of ApiCallingFlow and implement methods.
+	 * 1st parameter - context
+	 * 2nd parameter - parentLayout from step 1
+	 * 3rd parameter - isTransparent (if you want background color to be transparent then 'true'
+	 * else 'false' for default white background)
+	 */
 
-			ApiCallingFlow apiCallingFlow = new ApiCallingFlow(this, parentLayout, false) {
-				@Override
-				public void callCurrentApiHere() {
-				
-					//TODO Step 3: Pass function to call current API
-					requestCurrentApi();
-				}
-			};
+		ApiCallingFlow apiCallingFlow = new ApiCallingFlow(this, parentLayout, false) {
+			@Override
+			public void callCurrentApiHere() {
+			
+				//TODO Step 3: Pass function to call current API
+				requestCurrentApi();
+			}
+		};
 
 
-        //TODO Step 4: Get current Network state using ( apiCallingFlow.getNetworkState() ) 
-        //and request API accordingly.
+	//TODO Step 4: Get current Network state using ( apiCallingFlow.getNetworkState() ) 
+	//and request API accordingly.
 
-        //TODO Step 5: Call ( apiCallingFlow.onSuccessResponse(); ) after API is successful
+	//TODO Step 5: Call ( apiCallingFlow.onSuccessResponse(); ) after API is successful
 
-        //TODO Step 6: Call ( apiCallingFlow.onErrorResponse(); ) after API is failed
+	//TODO Step 6: Call ( apiCallingFlow.onErrorResponse(); ) after API is failed
 
 
 

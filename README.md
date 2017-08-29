@@ -74,7 +74,7 @@ Example-
 	 * 3rd parameter - **true** for transparent background, **false** for default white background
 * Step 3: Pass function to call current API on click of try again.
 	 
-	private void requestTestApi() {
+		private void requestTestApi() {
   		...
       
 		ApiCallingFlow apiCallingFlow = new ApiCallingFlow(this, parentLayout, false) {
@@ -86,7 +86,7 @@ Example-
 		};
     
 		...
-	}
+		}
 
 
 * Step 4: Get current Network state using **apiCallingFlow.getNetworkState()** and request API accordingly.

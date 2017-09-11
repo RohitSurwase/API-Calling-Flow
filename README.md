@@ -1,6 +1,7 @@
 [![](https://jitpack.io/v/RohitSurwase/API-Calling-Flow.svg)](https://jitpack.io/#RohitSurwase/API-Calling-Flow)
 [![](https://jitpack.io/v/RohitSurwase/API-Calling-Flow/month.svg)](https://jitpack.io/#jitpack/RohitSurwase/API-Calling-Flow)
 [![](https://jitpack.io/v/RohitSurwase/API-Calling-Flow/week.svg)](https://jitpack.io/#RohitSurwase/API-Calling-Flow)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-API%20Calling%20Flow-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/6192)
 
 # API Calling Flow
 

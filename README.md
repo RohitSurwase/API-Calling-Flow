@@ -10,6 +10,8 @@
 
 API Calling Flow is a Android library which can help you to simplify handling different conditions while calling an API (Web Service) in Android.
 
+Download example App [here](https://github.com/RohitSurwase/API-Calling-Flow/raw/master/api-calling-flow-example.apk) or checkout [example](https://github.com/RohitSurwase/API-Calling-Flow/tree/master/example-app).
+
 ## Features
 
 * Internal Network State Checking.

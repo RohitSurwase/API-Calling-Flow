@@ -38,7 +38,7 @@ In your Application's or Module's build.gradle file:
 
 	dependencies {
   	  ...
-      compile 'com.github.RohitSurwase.API-Calling-Flow:api-calling-flow:1.0'
+      compile 'com.github.RohitSurwase.API-Calling-Flow:api-calling-flow:1.1'
       ...
 	}
 
@@ -99,11 +99,19 @@ Example-
 * Step 5: Call **apiCallingFlow.onSuccessResponse()** in API success function.
 * Step 6: Call **apiCallingFlow.onErrorResponse()** in API error function.
 
+## Customizations
+Change progressbar color according to your app theme.
+By default progrebar has R.color.colorAccent color
+But if you want to customize it, you can do it by passing additional parameter to the function.
+
+	...
+	ApiCallingFlow apiCallingFlow = new ApiCallingFlow(this, parentLayout, false, R.color.progressBarColor) {
+	...
 
 
 ## License
 
-Copyright 2017 Rohit Surwase
+Copyright 2017-18 Rohit Surwase
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

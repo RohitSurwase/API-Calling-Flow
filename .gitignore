@@ -8,6 +8,9 @@
 # Files for the ART/Dalvik VM
 *.dex
 
+# OS
+.DS_Store
+
 # Java class files
 *.class
 

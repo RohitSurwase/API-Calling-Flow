@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.provider.Settings;
+import android.support.v4.content.ContextCompat;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -35,6 +36,7 @@ public abstract class ApiCallingFlow {
     private boolean isTransparent;
     private boolean isNetworkAvailable;
     private ConnectivityManager connectivityManager;
+    private int mProgressBarColor = R.color.colorAccent;
 
     /**
      * Constructor used to initialize this functionality
@@ -48,6 +50,24 @@ public abstract class ApiCallingFlow {
         this.parentLayout = parentLayout;
         mContext = context;
         this.isTransparent = isTransparent;
+        connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        inflateAndSetUpLayout();
+    }
+
+    /**
+     * Constructor used to initialize this functionality
+     *
+     * @param context          context
+     * @param parentLayout     parentLayout
+     * @param isTransparent    isTransparent
+     * @param progressBarColor progressBarColor
+     *                         Created by Rohit.
+     */
+    public ApiCallingFlow(Context context, ViewGroup parentLayout, boolean isTransparent, int progressBarColor) {
+        this.parentLayout = parentLayout;
+        mContext = context;
+        this.isTransparent = isTransparent;
+        mProgressBarColor = progressBarColor;
         connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         inflateAndSetUpLayout();
     }
@@ -138,8 +158,10 @@ public abstract class ApiCallingFlow {
         btnTryAgain = ((Button) progressLayout.findViewById(R.id.btnTryAgain));
         btnTryAgain.setVisibility(View.GONE);
         pbLoading = ((ProgressBar) progressLayout.findViewById(R.id.progressBar));
-        pbLoading.getIndeterminateDrawable().setColorFilter(0xFF9e9e9e, android.graphics.PorterDuff.Mode.MULTIPLY);
+        pbLoading.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(mContext, mProgressBarColor),
+                android.graphics.PorterDuff.Mode.MULTIPLY);
         pbLoading.setVisibility(View.GONE);
+
         tvApiError = ((TextView) progressLayout.findViewById(R.id.tvApiError));
         tvApiError.setVisibility(View.GONE);
         ivCancel = (ImageView) progressLayout.findViewById(R.id.imgCancel);
